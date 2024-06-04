@@ -6,14 +6,15 @@ import { useState, useEffect } from "react";
 
 const AllItemsSection = () => {
   const [itemList, setItmeList] = useState([]);
-  const [orderBy, setorderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState("createdAt");
   const sortedItemList = itemList.sort((a, b) => b[orderBy] - a[orderBy]);
+
   const handleRecentClick = () => {
-    setorderBy("recent");
+    setOrderBy("createdAt");
   };
 
   const handleFavoriteClick = () => {
-    setorderBy("favorite");
+    setOrderBy("favoriteCount");
   };
 
   const handleLoad = async (orderQuery) => {
