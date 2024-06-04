@@ -32,7 +32,7 @@ const AllItemsSection = () => {
         <h1>전체 상품</h1>
         <div>
           <input />
-          <Link>상품 등록하기</Link>
+          <Link to="additem">상품 등록하기</Link>
           <div>
             <button onClick={handleRecentClick}>최신순</button>
             <button onClick={handleFavoriteClick}>좋아요순</button>
