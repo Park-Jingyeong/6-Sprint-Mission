@@ -6,6 +6,25 @@ import { useState, useEffect } from "react";
 
 const AllItemsSection = () => {
   const [itemList, setItmeList] = useState([]);
+  const [orderBy, setorderBy] = useState("recent");
+  const sortedItemList = itemList.sort((a, b) => b[orderBy] - a[orderBy]);
+  const handleRecentClick = () => {
+    setorderBy("recent");
+  };
+
+  const handleFavoriteClick = () => {
+    setorderBy("favorite");
+  };
+
+  const handleLoad = async (orderQuery) => {
+    const products = await getProducts(orderQuery);
+    setItmeList(products.list);
+  };
+
+  useEffect(() => {
+    handleLoad(orderBy);
+  }, [orderBy]);
+
   return (
     <div>
       <div>
@@ -14,13 +33,13 @@ const AllItemsSection = () => {
           <input />
           <Link>상품 등록하기</Link>
           <div>
-            <button>최신순</button>
-            <button>좋아요순</button>
+            <button onClick={handleRecentClick}>최신순</button>
+            <button onClick={handleFavoriteClick}>좋아요순</button>
           </div>
         </div>
       </div>
       <div>
-        {itemList.map((item) => (
+        {sortedItemList.map((item) => (
           <ItemCard item={item} key={item.id} />
         ))}
       </div>
