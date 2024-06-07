@@ -28,7 +28,7 @@
   color: #4b5563;
   font-size: 18px;
   font-weight: 700;
-  font-family: pretendard;
+  font-family: "Pretendard";
 }
 .linkTo :hover {
   color: #3692ff;
@@ -43,7 +43,7 @@
 .pandaMarket {
   text-align: center;
   color: #3692ff;
-  font-family: ROKAF-Sans;
+  font-family: "Noto sans KR";
   font-size: 25.63px;
   font-weight: 700;
   line-height: 34.6px;
